@@ -27,6 +27,7 @@ const getAnimals = (formData = {}) => {
 
   Object.entries(formData).forEach(([key, value]) => {
     queryUrl += `${key}=${value}&`;
+    console.log(queryUrl);
 
     fetch(queryURL)
     .then(response => {
@@ -37,11 +38,12 @@ const getAnimals = (formData = {}) => {
     })
     .then(animalData => {
       console.log(animalData);
+      printResults(animalData);
    });
 
   });
 
-  console.log(queryUrl);
+ 
 
 };
 
