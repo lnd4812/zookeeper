@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-const { animals } = require('./adata/animals');
+const { animals } = require('./data/animals');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -45,7 +45,7 @@ function createNewAnimal(body, animalsArray) {
   const animal = body;
   animalsArray.push(animal);
   fs.writeFileSync(
-    path.join(__dirname, './adata/animals.json'),
+    path.join(__dirname, './data/animals.json'),
     JSON.stringify({ animals: animalsArray }, null, 2)
   );
   return animal;
